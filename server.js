@@ -7,7 +7,8 @@ const express = require('express');
 const app = express();
 /* Middleware*/
 //Here we are configuring express to use body-parser as middle-ware.
-const
+const bodyParser = require('body-parser');
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
