@@ -1,6 +1,7 @@
 /* Global Variables */
 
-const res = require('express/lib/response');
+//const res = require('express/lib/response');
+
 
 const baseURL = 'api.openweathermap.org/data/2.5/weather?';
 const cityID = 'id=2761333'; //Wiener Neustadt AT
@@ -43,7 +44,7 @@ const retrieveData = async (url = '') => {
 //Get openwether API data
 
 function performwetherapi(e) {
-  getTemperature(baseURL, cityID, units, OpenWeather_Key);
+  getTemperature(baseURL, cityID, units, process.env.OpenWeather_Key);
 }
 
 const getTemperature = async (baseURL, cityID, units, apiKey) => {
