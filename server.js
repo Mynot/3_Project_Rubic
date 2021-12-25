@@ -26,7 +26,7 @@ function listening() {
 }
 
 //Get route
-app.get('/all', sendData);
+app.get('/getall', sendData);
 
 function sendData(request, response) {
   response.send(projectData);

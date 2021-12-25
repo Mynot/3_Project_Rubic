@@ -1,5 +1,12 @@
 /* Global Variables */
 
+const res = require('express/lib/response');
+
+const baseURL = 'api.openweathermap.org/data/2.5/weather?';
+const cityID = 'id=2761333'; //Wiener Neustadt AT
+const units = '&units=metric';
+
+
 // Create a new date instance dynamically with JS
 let d = new Date();
 let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear();
@@ -33,9 +40,32 @@ const retrieveData = async (url = '') => {
   }
 };
 
+//Get openwether API data
+
+function performwetherapi(e) {
+  getTemperature(baseURL, cityID, units, OpenWeather_Key);
+}
+
+const getTemperature = async (baseURL, cityID, units, apiKey) => {
+  const response = await fetch(baseURL + cityID + units + apiKey);
+
+  try {
+    const wetherdata = await response.json();
+    console.log(wetherdata);
+  } catch (error) {
+    console.log('error', error);
+  }
+};
+
 function postGet() {
-  postData('/addData', { date: newDate }).then(function (data) {
-    retrieveData('/all');
+  performwetherapi();
+  const temperature = wetherdata[0].temp;
+  postData('/addData', {
+    temperature: temperature,
+    date: newDate,
+    userrespone: response,
+  }).then(function (Data) {
+    retrieveData('/getall');
   });
 }
 
