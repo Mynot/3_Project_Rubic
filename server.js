@@ -25,20 +25,25 @@ const server = app.listen(port, listening);
 function listening() {
   console.log(`Server running on localhost: ${port}`);
 }
+//
+
+
 
 //Get route
 app.get('/getall', sendData);
 
 function sendData(request, response) {
-  response.send(projectData);
+  console.log(data);
+  response.send(data);
 }
 
 //Post route
-app.post('/add', callBack);
+//app.get('/getWeather', performwetherapi);
 
-function callBack(request, response) {
-  response.send('Post received');
-}
+//Get openwether API data
+
+//response.send(wetherdata);
+//}
 
 //Post add Data
 const data = [];
@@ -46,5 +51,6 @@ const data = [];
 app.post('/addData', addData);
 
 function addData(request, response) {
+  console.log(request.body);
   data.push(request.body);
 }

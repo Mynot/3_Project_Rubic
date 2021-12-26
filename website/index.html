@@ -11,12 +11,27 @@
   </head>
 
   <body>
-    <div id="app">
+    <div class="app">
       <div class="holder headline">Weather Journal App</div>
 
       <div class="holder zip">
-        <label for="zip">Enter Zipcode here</label>
-        <input type="text" id="zip" placeholder="enter zip code here" />
+        
+        <div class="zipcountry">
+          <label for="zip">Enter Zipcode here</label>
+        <input
+          type="text"
+          id="zip"
+          placeholder="enter zip code and country here"
+          value="2700"
+        />
+        <label for="country">Enter Country here</label>
+        <input
+          type="text"
+          id="country"
+          placeholder="enter zip code and country here"
+          value="AT"
+        />
+        </div>
       </div>
 
       <div class="holder feel">
@@ -33,7 +48,7 @@
 
       <div class="holder entry">
         <div class="title">Most Recent Entry</div>
-        <div id="entryHolder">
+        <div class="entryHolder">
           <div id="date"></div>
           <div id="temp"></div>
           <div id="content"></div>

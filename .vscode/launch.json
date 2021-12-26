@@ -5,11 +5,18 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "Chrome",
+      "name": "Launch Chrome",
       "request": "launch",
-      "name": "Launch Chrome against localhost",
-      "url": "http://localhost:8080",
-      "webRoot": "${workspaceFolder}/webside/index.html"
+      "type": "pwa-chrome",
+      "url": "http://localhost:5500",
+      "webRoot": "${workspaceFolder}/website/"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch server",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\server.js"
     }
   ]
 }
