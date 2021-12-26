@@ -27,8 +27,6 @@ function listening() {
 }
 //
 
-
-
 //Get route
 app.get('/getall', sendData);
 
