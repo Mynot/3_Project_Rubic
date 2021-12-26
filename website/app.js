@@ -6,7 +6,7 @@ const baseURL = 'http://api.openweathermap.org/data/2.5/weather?';
 const zipcode = 'zip=2700';
 const country = ',AT'; //Wiener Neustadt AT
 const units = '&units=metric';
-const OpenWeather_Key = '&appid=8b9a0ed2fb75b9fbab6a13540270e4a6';
+const OpenWeather_Key = {API_KEY};
 
 // Create a new date instance dynamically with JS
 let d = new Date();
@@ -60,7 +60,7 @@ const getTemperature = (baseURL, zipcode, country, apiKey, units) => {
   console.log(baseURL + 'zip=' + zipcode + ',' + country + apiKey + units);
   const endpoint = baseURL + 'zip=' + zipcode + ',' + country + apiKey + units;
   //const endpoint =
-  //  'api.openweathermap.org/data/2.5/weather?zip=2700,AT&appid=8b9a0ed2fb75b9fbab6a13540270e4a6';
+
 
   const loadData = async () => {
     try {
