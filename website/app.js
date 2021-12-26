@@ -10,7 +10,7 @@ const OpenWeather_Key = '&appid=8b9a0ed2fb75b9fbab6a13540270e4a6';
 
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear();
+let newDate = d.toLocaleString('en-GB');
 
 const buttonSubmit = document.getElementById('generate');
 
