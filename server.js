@@ -35,14 +35,6 @@ function sendData(request, response) {
   response.send(data);
 }
 
-//Post route
-//app.get('/getWeather', performwetherapi);
-
-//Get openwether API data
-
-//response.send(wetherdata);
-//}
-
 //Post add Data
 const data = [];
 
