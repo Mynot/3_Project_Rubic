@@ -31,16 +31,20 @@ function listening() {
 app.get('/getall', sendData);
 
 function sendData(request, response) {
-  console.log(data);
-  response.send(data);
+  console.log(projectData);
+  response.send(projectData);
 }
 
 //Post add Data
-const data = [];
+//const data = [];
 
 app.post('/addData', addData);
 
 function addData(request, response) {
+
+  projectData['date'] = request.body.date;
+  projectData['temperature'] = request.body.temperature;
+  projectData['feelings'] = request.body.feelings;
+  response.send(projectData);
   console.log(request.body);
-  data.push(request.body);
 }

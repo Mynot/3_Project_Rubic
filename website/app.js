@@ -34,18 +34,16 @@ const postData = async (url = '', data = {}) => {
   }
 };
 
-//Get Data and fill Layoput
-const retrieveData = async (url = '') => {
+//Get Data and update User Interface
+const updateUI = async (url = '/getall') => {
   const request = await fetch(url);
   try {
-    const allData = await request.json();
-    console.log(allData);
+    const projectData = await request.json();
+    console.log(projectData);
 
-    let length = allData.length - 1;
-
-    document.getElementById('date').innerHTML = allData[length].date;
-    document.getElementById('temp').innerHTML = allData[length].temperature;
-    document.getElementById('content').innerHTML = allData[length].feelings;
+    document.getElementById('date').innerHTML = projectData.date;
+    document.getElementById('temp').innerHTML = projectData.temperature;
+    document.getElementById('content').innerHTML = projectData.feelings;
   } catch (error) {
     console.log('error', error);
   }
@@ -59,9 +57,8 @@ function getwetherdata(zipcode, country) {
 const getTemperature = (baseURL, zipcode, country, apiKey, units) => {
   console.log(baseURL + 'zip=' + zipcode + ',' + country + apiKey + units);
   const endpoint = baseURL + 'zip=' + zipcode + ',' + country + apiKey + units;
-  //const endpoint =
-  //  'api.openweathermap.org/data/2.5/weather?zip=2700,AT&appid=8b9a0ed2fb75b9fbab6a13540270e4a6';
 
+  // Get Data function
   const loadData = async () => {
     try {
       const res = await fetch(endpoint);
@@ -85,12 +82,13 @@ const getTemperature = (baseURL, zipcode, country, apiKey, units) => {
       temperature: temp,
       date: newDate,
       feelings: feeling,
-    }).then(retrieveData('/getall'));
+    }).then(() => {
+      updateUI();
+    });
   });
 };
 
-//retrieveData('/getall');
-//getwetherdata();
+// Button Post Data Function
 function postButtonSubmit() {
   let zip = document.getElementById('zip').value;
   let country = document.getElementById('country').value;
@@ -99,5 +97,3 @@ function postButtonSubmit() {
 }
 
 buttonSubmit.addEventListener('click', postButtonSubmit);
-
-//postGet();
