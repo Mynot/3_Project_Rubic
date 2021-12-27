@@ -6,7 +6,6 @@ const baseURL = 'http://api.openweathermap.org/data/2.5/weather?';
 const zipcode = 'zip=2700';
 const country = ',AT'; //Wiener Neustadt AT
 const units = '&units=metric';
-const OpenWeather_Key = '&appid=8b9a0ed2fb75b9fbab6a13540270e4a6';
 const OpenWeather_Key = {API_KEY};
 
 // Create a new date instance dynamically with JS
